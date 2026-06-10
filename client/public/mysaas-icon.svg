@@ -1,0 +1,12 @@
+<svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- MySaas favicon  fictional brand of the Altruon Merchant Demo -->
+  <rect width="36" height="36" rx="10" fill="url(#mysaas-icon-gradient)"/>
+  <path d="M9 25V12.5L14.5 20L20 12.5V25" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <circle cx="26.5" cy="22.5" r="2.5" fill="white"/>
+  <defs>
+    <linearGradient id="mysaas-icon-gradient" x1="0" y1="0" x2="36" y2="36" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#6366F1"/>
+      <stop offset="1" stop-color="#8B5CF6"/>
+    </linearGradient>
+  </defs>
+</svg>

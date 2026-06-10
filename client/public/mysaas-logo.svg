@@ -1,0 +1,13 @@
+<svg width="170" height="40" viewBox="0 0 170 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- MySaas  the fictional brand shipped with the Altruon Merchant Demo -->
+  <rect x="0" y="2" width="36" height="36" rx="10" fill="url(#mysaas-gradient)"/>
+  <path d="M9 27V14.5L14.5 22L20 14.5V27" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <circle cx="26.5" cy="24.5" r="2.5" fill="white"/>
+  <text x="44" y="28" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="21" font-weight="700" fill="#0F172A" letter-spacing="-0.5">My<tspan fill="#6366F1">Saas</tspan></text>
+  <defs>
+    <linearGradient id="mysaas-gradient" x1="0" y1="2" x2="36" y2="38" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#6366F1"/>
+      <stop offset="1" stop-color="#8B5CF6"/>
+    </linearGradient>
+  </defs>
+</svg>

@@ -1,0 +1,176 @@
+/* OrderSummary — sticky pricing panel on the checkout page. */
+
+.order-summary {
+  padding: 26px;
+  position: sticky;
+  top: 24px;
+}
+
+.order-summary h3 {
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.order-brand-line {
+  font-size: 13px;
+  color: var(--sf-text-muted);
+  margin: 4px 0 18px;
+  text-transform: capitalize;
+}
+
+/* Line items */
+
+.order-lines {
+  list-style: none;
+  margin: 0 0 16px;
+  padding: 0 0 16px;
+  border-bottom: 1px solid var(--sf-border);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.order-line {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 14px;
+}
+
+.order-line-desc {
+  color: var(--sf-text);
+}
+
+.order-line-qty {
+  color: var(--sf-text-muted);
+  font-size: 12.5px;
+}
+
+.order-line-amount {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* Coupon */
+
+.order-coupon {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.order-coupon input {
+  flex: 1;
+  height: 40px;
+  padding: 0 12px;
+  border: 1px solid var(--sf-border);
+  border-radius: var(--radius);
+  font-size: 13.5px;
+  text-transform: uppercase;
+}
+
+.order-coupon input:focus {
+  outline: none;
+  border-color: var(--sf-primary);
+}
+
+.order-coupon .sf-button {
+  height: 40px;
+  padding: 0 16px;
+  font-size: 13.5px;
+}
+
+.order-coupon-error {
+  font-size: 12.5px;
+  color: var(--sf-danger);
+  margin-bottom: 8px;
+}
+
+.order-coupon-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.order-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  background: color-mix(in srgb, var(--sf-success) 12%, white);
+  color: #047857;
+  border: 1px solid color-mix(in srgb, var(--sf-success) 35%, transparent);
+  border-radius: 999px;
+  padding: 4px 10px;
+}
+
+.order-chip button {
+  background: none;
+  border: none;
+  padding: 0;
+  color: inherit;
+  font-size: 11px;
+  opacity: 0.7;
+}
+
+.order-chip button:hover {
+  opacity: 1;
+}
+
+/* Totals */
+
+.order-totals {
+  margin: 8px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.order-totals div {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 14px;
+}
+
+.order-totals dt {
+  color: var(--sf-text-muted);
+}
+
+.order-totals dd {
+  margin: 0;
+  font-weight: 600;
+}
+
+.order-discount dd {
+  color: var(--sf-success);
+}
+
+.order-total {
+  padding-top: 12px;
+  margin-top: 4px;
+  border-top: 1px solid var(--sf-border);
+}
+
+.order-total dt {
+  font-weight: 700;
+  color: var(--sf-text);
+  font-size: 15px;
+}
+
+.order-total dd {
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.order-note {
+  margin-top: 16px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--sf-text-muted);
+}

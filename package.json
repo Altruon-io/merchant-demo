@@ -1,0 +1,20 @@
+{
+  "name": "altruon-merchant-demo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Public reference integration of the Altruon SDK: a branded SaaS subscription checkout (MySaas) with a minimal Node backend that keeps your Altruon secret key server-side.",
+  "scripts": {
+    "setup": "npm install && npm install --prefix server && npm install --prefix client",
+    "dev": "concurrently -n server,client -c green,cyan \"npm run dev --prefix server\" \"npm run dev --prefix client\"",
+    "dev:server": "npm run dev --prefix server",
+    "dev:client": "npm run dev --prefix client",
+    "build": "npm run build --prefix client",
+    "start": "npm run start --prefix server"
+  },
+  "devDependencies": {
+    "concurrently": "^10.0.3"
+  },
+  "overrides": {
+    "shell-quote": "^1.8.4"
+  }
+}

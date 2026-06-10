@@ -1,0 +1,377 @@
+/* ============================================================================
+   theme.css — design tokens & shared primitives for the Merchant Demo.
+
+   TWO visual identities live in this app, on purpose:
+
+   1. THE ALTRUON SHELL ("at-" prefix, --at-* tokens)
+      Integration tooling the MERCHANT sees: the setup/validation screen and
+      the configuration panel. Colors and typography mirror altruon.io and
+      docs.altruon.io (green #01AB4B, navy #0E1A2D, Inter / JetBrains Mono).
+
+   2. THE STOREFRONT ("sf-" prefix, --sf-* tokens)
+      What the merchant's CUSTOMER sees: the checkout and result pages.
+      Defaults to the fictional "MySaas" brand (indigo #6366F1) — but
+      --sf-primary is set at runtime from the config panel, so the whole
+      storefront re-brands live when a merchant enters their own colors.
+   ========================================================================== */
+
+:root {
+  /* ── Altruon brand (from altruon_website_new + docs theme) ─────────────── */
+  --at-green: #01ab4b;
+  --at-green-dark: #019942;
+  --at-green-light: #7be5aa;
+  --at-navy: #0e1a2d;
+  --at-navy-soft: #11263b;
+  --at-bg: #f5f7f9;
+  --at-border: #e6edf4;
+  --at-text: #11263b;
+  --at-text-muted: #5b6b7f;
+
+  /* ── Storefront brand (MySaas defaults; --sf-primary set at runtime) ───── */
+  --sf-primary: #6366f1; /* overwritten by BrandStyler in App.jsx */
+  --sf-text: #0f172a; /* slate-900 */
+  --sf-text-muted: #64748b; /* slate-500 */
+  --sf-bg: #f8fafc; /* slate-50 */
+  --sf-surface: #ffffff;
+  --sf-border: #e2e8f0; /* slate-200 */
+  --sf-success: #10b981; /* emerald-500 */
+  --sf-danger: #ef4444; /* red-500 */
+  --sf-warning: #f59e0b; /* amber-500 */
+
+  /* ── Shared ─────────────────────────────────────────────────────────────── */
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --radius: 10px;
+  --radius-lg: 16px;
+  --shadow-card: 0 1px 3px rgba(15, 23, 42, 0.06), 0 4px 16px rgba(15, 23, 42, 0.06);
+  --shadow-pop: 0 8px 40px rgba(15, 23, 42, 0.18);
+}
+
+/* ── Base reset ──────────────────────────────────────────────────────────── */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  color: var(--sf-text);
+  background: var(--sf-bg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+input,
+select {
+  font-family: inherit;
+}
+
+.mono {
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+  word-break: break-all;
+}
+
+/* ── Shared form controls (used by both brands) ──────────────────────────── */
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.field label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--sf-text);
+}
+
+.field input,
+.field select {
+  height: 42px;
+  padding: 0 12px;
+  border: 1px solid var(--sf-border);
+  border-radius: var(--radius);
+  font-size: 14px;
+  background: #fff;
+  color: var(--sf-text);
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.field input:focus,
+.field select:focus {
+  outline: none;
+  border-color: var(--sf-primary);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--sf-primary) 18%, transparent);
+}
+
+.field .hint {
+  font-size: 12px;
+  color: var(--sf-text-muted);
+  line-height: 1.45;
+}
+
+.field .hint a {
+  color: var(--at-green-dark);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.field .hint a:hover {
+  text-decoration: underline;
+}
+
+.field-error {
+  font-size: 12px;
+  color: var(--sf-danger);
+  line-height: 1.4;
+}
+
+.field input[aria-invalid="true"],
+.field select[aria-invalid="true"] {
+  border-color: var(--sf-danger);
+}
+
+.field input[aria-invalid="true"]:focus,
+.field select[aria-invalid="true"]:focus {
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--sf-danger) 18%, transparent);
+}
+
+.required-mark {
+  color: var(--sf-danger);
+}
+
+/* ── Storefront buttons ──────────────────────────────────────────────────── */
+
+.sf-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 48px;
+  padding: 0 24px;
+  border: none;
+  border-radius: var(--radius);
+  background: var(--sf-primary);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  transition: filter 0.15s, transform 0.05s;
+}
+
+.sf-button:hover:not(:disabled) {
+  filter: brightness(1.08);
+}
+
+.sf-button:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.sf-button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.sf-button.secondary {
+  background: transparent;
+  color: var(--sf-text);
+  border: 1px solid var(--sf-border);
+}
+
+.sf-button.secondary:hover:not(:disabled) {
+  background: var(--sf-bg);
+  filter: none;
+}
+
+/* ── Altruon shell buttons (setup gate + config panel) ───────────────────── */
+
+.at-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 44px;
+  padding: 0 22px;
+  border: none;
+  border-radius: var(--radius);
+  background: var(--at-green);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  transition: background 0.15s;
+}
+
+.at-button:hover:not(:disabled) {
+  background: var(--at-green-dark);
+}
+
+.at-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.at-button.ghost {
+  background: transparent;
+  color: var(--at-text);
+  border: 1px solid var(--at-border);
+}
+
+.at-button.ghost:hover:not(:disabled) {
+  background: var(--at-bg);
+}
+
+/* ── Cards ───────────────────────────────────────────────────────────────── */
+
+.card {
+  background: var(--sf-surface);
+  border: 1px solid var(--sf-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+}
+
+/* ── Loaders ─────────────────────────────────────────────────────────────── */
+
+/* Circular spinner — pass a color via `currentColor` on the parent. */
+.spinner {
+  width: 36px;
+  height: 36px;
+  border: 3px solid color-mix(in srgb, currentColor 18%, transparent);
+  border-top-color: currentColor;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+.spinner.small {
+  width: 18px;
+  height: 18px;
+  border-width: 2px;
+}
+
+.spinner-lg {
+  width: 44px;
+  height: 44px;
+  border-width: 3.5px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Skeleton shimmer — used while the price estimate loads. */
+.skeleton {
+  position: relative;
+  overflow: hidden;
+  background: #eef1f6;
+  border-radius: 6px;
+  min-height: 14px;
+}
+
+.skeleton::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.7), transparent);
+  animation: shimmer 1.4s infinite;
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* ── Modal / overlay primitives ──────────────────────────────────────────── */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(14, 26, 45, 0.55);
+  backdrop-filter: blur(4px);
+  animation: fade-in 0.18s ease-out;
+}
+
+/* Fully opaque scrim — blocks checkout content from showing through loaders. */
+.overlay-blocking {
+  background: rgba(15, 23, 42, 0.72);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.modal {
+  width: 100%;
+  max-width: 480px;
+  max-height: 90vh;
+  overflow-y: auto;
+  background: #fff;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-pop);
+  padding: 28px;
+  animation: pop-in 0.22s cubic-bezier(0.21, 1.02, 0.73, 1);
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes pop-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.97);
+  }
+}
+
+/* Generic fade-up entrance used across pages for a polished feel. */
+.fade-up {
+  animation: fade-up 0.35s ease-out both;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+
+/* ── Error banner (storefront) ───────────────────────────────────────────── */
+
+.error-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 14px;
+  margin: 12px 0;
+  border: 1px solid color-mix(in srgb, var(--sf-danger) 35%, transparent);
+  background: color-mix(in srgb, var(--sf-danger) 7%, white);
+  color: #b91c1c;
+  border-radius: var(--radius);
+  font-size: 13.5px;
+  line-height: 1.45;
+}
