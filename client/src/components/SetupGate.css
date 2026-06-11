@@ -1,0 +1,167 @@
+/* SetupGate — Altruon-branded onboarding screen (navy hero + light body). */
+
+.setup-gate {
+  min-height: 100vh;
+  background: var(--at-bg);
+  display: flex;
+  flex-direction: column;
+}
+
+.setup-hero {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 22px 32px;
+  background: var(--at-navy);
+}
+
+.setup-logo {
+  height: 26px;
+}
+
+.setup-hero-tag {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--at-green-light);
+  border: 1px solid rgba(123, 229, 170, 0.35);
+  border-radius: 999px;
+  padding: 4px 12px;
+}
+
+.setup-body {
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 56px 20px;
+}
+
+.setup-card {
+  width: 100%;
+  max-width: 640px;
+  background: #fff;
+  border: 1px solid var(--at-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  padding: 36px;
+}
+
+.setup-card h1 {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--at-text);
+  margin-bottom: 10px;
+}
+
+.setup-card code {
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+  background: var(--at-bg);
+  border: 1px solid var(--at-border);
+  border-radius: 5px;
+  padding: 1px 5px;
+}
+
+.setup-sub {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--at-text-muted);
+  margin-bottom: 24px;
+}
+
+.setup-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 16px;
+  padding: 56px 36px;
+}
+
+.setup-loading h1 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.setup-loading .setup-sub {
+  margin: 0;
+}
+
+/* Checklist */
+
+.setup-checklist {
+  list-style: none;
+  margin: 0 0 26px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.setup-checklist li {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 10px 12px;
+  border-radius: var(--radius);
+}
+
+.setup-checklist li.fail {
+  background: rgba(239, 68, 68, 0.05);
+}
+
+.check-icon {
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.check-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--at-text);
+}
+
+.check-message {
+  display: block;
+  margin-top: 3px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--at-text-muted);
+}
+
+/* Actions + docs footer */
+
+.setup-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 22px;
+}
+
+.setup-actions a {
+  text-decoration: none;
+}
+
+.setup-docs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  padding-top: 18px;
+  border-top: 1px solid var(--at-border);
+  font-size: 13px;
+  color: var(--at-text-muted);
+}
+
+.setup-docs a {
+  color: var(--at-green-dark);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.setup-docs a:hover {
+  text-decoration: underline;
+}

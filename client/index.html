@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MySaas — Altruon Merchant Demo</title>
+    <link rel="icon" type="image/svg+xml" href="/mysaas-icon.svg" />
+
+    <!--
+      Fonts: Inter (UI) + JetBrains Mono (ids / keys), matching the Altruon
+      documentation site so the integration tooling feels familiar.
+    -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!--
+      The Altruon JS SDK. Loading it from the CDN attaches a global `altruon`
+      object (init / setSession / renderComponent / processPaymentAndSubscription).
+      Docs: https://docs.altruon.io/docs/developers/altruon-js/quick-start
+    -->
+    <script src="https://cdn.altruon.io/altruon-sdk.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

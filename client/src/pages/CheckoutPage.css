@@ -1,0 +1,329 @@
+/* CheckoutPage — merchant-branded storefront checkout. */
+
+.checkout-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--sf-bg);
+}
+
+/* Header */
+
+.checkout-header {
+  background: var(--sf-surface);
+  border-bottom: 1px solid var(--sf-border);
+}
+
+.checkout-header-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.checkout-header-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+}
+
+.sandbox-fill-btn {
+  flex-shrink: 0;
+  height: 34px;
+  padding: 0 12px;
+  border: 1px dashed color-mix(in srgb, #d97706 45%, var(--sf-border));
+  border-radius: 8px;
+  background: color-mix(in srgb, #fef3c7 40%, white);
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #92400e;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.sandbox-fill-btn:hover:not(:disabled) {
+  background: color-mix(in srgb, #fef3c7 70%, white);
+  border-color: color-mix(in srgb, #d97706 60%, var(--sf-border));
+}
+
+.sandbox-fill-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.checkout-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.checkout-brand img {
+  height: 32px;
+  max-width: 180px;
+  object-fit: contain;
+}
+
+.checkout-brand strong {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.checkout-secure {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--sf-success);
+}
+
+.checkout-success-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 14px;
+  margin: 0 0 20px;
+  border: 1px solid color-mix(in srgb, var(--sf-success) 35%, transparent);
+  background: color-mix(in srgb, var(--sf-success) 8%, white);
+  color: #047857;
+  border-radius: var(--radius);
+  font-size: 13.5px;
+  line-height: 1.45;
+}
+
+/* Layout */
+
+.checkout-main {
+  flex: 1;
+  width: 100%;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 32px 24px 48px;
+}
+
+.checkout-grid {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 28px;
+  align-items: start;
+}
+
+@media (max-width: 880px) {
+  .checkout-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* On mobile, show the price summary first — shoppers want the number. */
+  .order-summary {
+    order: -1;
+    position: static;
+  }
+}
+
+/* Form card */
+
+.checkout-form {
+  padding: 30px;
+}
+
+.checkout-form h2 {
+  font-size: 21px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 24px;
+}
+
+.checkout-section {
+  margin-bottom: 26px;
+}
+
+.checkout-section h4 {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--sf-text-muted);
+  margin-bottom: 14px;
+}
+
+.checkout-address-note {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--sf-text-muted);
+  background: color-mix(in srgb, var(--sf-primary) 6%, white);
+  border: 1px solid color-mix(in srgb, var(--sf-primary) 20%, var(--sf-border));
+  border-radius: var(--radius);
+  padding: 10px 12px;
+  margin-bottom: 14px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+@media (max-width: 560px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Payment method selector (rendered by the demo, not the SDK) */
+
+.method-selector {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.method-option {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 11px 16px;
+  border: 1px solid var(--sf-border);
+  border-radius: var(--radius);
+  background: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--sf-text);
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.method-option:hover:not(:disabled):not(.selected) {
+  border-color: color-mix(in srgb, var(--sf-primary) 45%, var(--sf-border));
+}
+
+.method-option:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.method-option.selected {
+  border-color: var(--sf-primary);
+  box-shadow: 0 0 0 1px var(--sf-primary);
+  background: color-mix(in srgb, var(--sf-primary) 4%, white);
+}
+
+/* Faux radio dot */
+.method-radio {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid var(--sf-border);
+  flex-shrink: 0;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.method-option.selected .method-radio {
+  border-color: var(--sf-primary);
+  box-shadow: inset 0 0 0 3px #fff;
+  background: var(--sf-primary);
+}
+
+/* Altruon payment component container */
+
+.altruon-container {
+  position: relative;
+  min-height: 160px;
+  border: 1px solid var(--sf-border);
+  border-radius: var(--radius);
+  background: #fff;
+  overflow: hidden;
+}
+
+.altruon-container iframe {
+  display: block;
+  border: none;
+  width: 100%;
+}
+
+.altruon-loading {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 24px;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--sf-text-muted);
+  background: var(--sf-surface);
+}
+
+.retry-inline {
+  height: 34px;
+  padding: 0 14px;
+  font-size: 13px;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+/* Pay button */
+
+.checkout-pay {
+  width: 100%;
+  height: 52px;
+  font-size: 16px;
+}
+
+.checkout-pay-amount {
+  font-weight: 700;
+}
+
+.checkout-terms {
+  margin-top: 14px;
+  font-size: 12px;
+  line-height: 1.55;
+  color: var(--sf-text-muted);
+  text-align: center;
+}
+
+/* Footer — subtle "Powered by Altruon" */
+
+.checkout-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 22px;
+  border-top: 1px solid var(--sf-border);
+  font-size: 12.5px;
+  color: var(--sf-text-muted);
+}
+
+.checkout-footer img {
+  height: 14px;
+  vertical-align: middle;
+  opacity: 0.75;
+  transition: opacity 0.15s;
+}
+
+.checkout-footer a:hover img {
+  opacity: 1;
+}
+
+.checkout-footer a {
+  color: var(--sf-text-muted);
+  text-decoration: none;
+}
+
+.checkout-footer a:hover {
+  color: var(--sf-text);
+  text-decoration: underline;
+}
+
+.checkout-footer-sep {
+  opacity: 0.5;
+}

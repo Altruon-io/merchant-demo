@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="380" viewBox="0 0 1200 380" fill="none" role="img" aria-label="Altruon Merchant Demo">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#061226"/>
+      <stop offset="58%" stop-color="#0e1a2d"/>
+      <stop offset="100%" stop-color="#071326"/>
+    </linearGradient>
+    <radialGradient id="glowGreen" cx="88%" cy="18%" r="42%">
+      <stop offset="0%" stop-color="#01ab4b" stop-opacity="0.32"/>
+      <stop offset="100%" stop-color="#01ab4b" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowPurple" cx="8%" cy="90%" r="45%">
+      <stop offset="0%" stop-color="#6656ff" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#6656ff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowSpot" cx="50%" cy="35%" r="50%">
+      <stop offset="0%" stop-color="#19d96f" stop-opacity="0.22"/>
+      <stop offset="65%" stop-color="#19d96f" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M 48 0 L 0 0 0 48" fill="none" stroke="rgba(255,255,255,0.045)" stroke-width="1"/>
+    </pattern>
+    <radialGradient id="gridMask" cx="50%" cy="35%" r="55%">
+      <stop offset="30%" stop-color="#fff"/>
+      <stop offset="78%" stop-color="#000"/>
+    </radialGradient>
+    <mask id="gridFade">
+      <rect width="1200" height="380" fill="url(#gridMask)"/>
+    </mask>
+    <filter id="softBlur" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="18"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="380" fill="url(#bg)"/>
+  <rect width="1200" height="380" fill="url(#glowGreen)"/>
+  <rect width="1200" height="380" fill="url(#glowPurple)"/>
+  <rect width="1200" height="380" fill="url(#grid)" mask="url(#gridFade)"/>
+
+  <!-- Top-right glow spot -->
+  <ellipse cx="1050" cy="70" rx="260" ry="260" fill="url(#glowSpot)" filter="url(#softBlur)"/>
+
+  <!-- Eyebrow badge -->
+  <rect x="462" y="52" width="276" height="34" rx="17" fill="rgba(1,171,75,0.12)" stroke="rgba(25,217,111,0.35)" stroke-width="1"/>
+  <g transform="translate(488, 63)" fill="#19d96f">
+    <path d="M4 5.5L6.5 8L4 10.5L1.5 8Z" opacity="0.9"/>
+    <path d="M10 5.5L12.5 8L10 10.5L7.5 8Z" opacity="0.7"/>
+    <path d="M16 5.5L18.5 8L16 10.5L13.5 8Z" opacity="0.5"/>
+  </g>
+  <text x="612" y="74" text-anchor="middle" fill="#19d96f" font-family="Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" font-weight="600" letter-spacing="1.8">SDK INTEGRATION</text>
+
+  <!-- Altruon logo (white) -->
+  <g transform="translate(461.4, 108) scale(0.58)">
+    <path d="M60.0445 25.88H77.8365V95H59.4045L57.3565 90.136C51.7245 94.744 44.5565 97.304 36.4925 97.304C15.3725 97.304 0.2685 81.944 0.2685 60.44C0.2685 39.064 15.3725 23.832 36.4925 23.832C44.6845 23.832 51.9805 26.52 57.6125 31.256L60.0445 25.88ZM39.6925 76.312C48.6525 76.312 55.1805 69.528 55.1805 60.44C55.1805 51.48 48.6525 44.824 39.6925 44.824C30.7325 44.824 24.2045 51.48 24.2045 60.44C24.2045 69.528 30.7325 76.312 39.6925 76.312ZM92.8615 95V0.919998H116.67V95H92.8615ZM169.116 74.264H178.204V95H161.819C146.588 95 137.244 85.656 137.244 70.296V44.312H124.572V38.68L155.548 5.784H160.54V25.88H177.82V44.312H161.052V66.328C161.052 71.192 164.124 74.264 169.116 74.264ZM228.018 25.624H234.418V47.384H225.074C216.754 47.384 213.17 51.096 213.17 59.928V95H189.362V25.88H205.362L209.074 33.56C213.938 27.928 219.826 25.624 228.018 25.624ZM276.514 97.304C256.162 97.304 242.466 84.76 242.466 65.432V25.88H266.274V64.408C266.274 71.704 270.242 75.928 276.514 75.928C282.914 75.928 286.754 71.576 286.754 64.408V25.88H310.562V65.432C310.562 84.76 296.994 97.304 276.514 97.304ZM359.3 97.304C336.772 97.304 320.644 81.816 320.644 60.44C320.644 39.064 336.772 23.704 359.3 23.704C381.827 23.704 398.084 39.064 398.084 60.44C398.084 81.816 381.827 97.304 359.3 97.304ZM359.3 75.928C368.004 75.928 374.276 69.656 374.276 60.568C374.276 51.48 368.004 45.08 359.3 45.08C350.724 45.08 344.452 51.352 344.452 60.568C344.452 69.656 350.724 75.928 359.3 75.928ZM450.84 23.96C466.84 23.96 477.464 35.352 477.464 52.888V95H453.656V56.216C453.656 48.152 450.584 44.184 444.568 44.184C437.144 44.184 432.92 49.304 432.92 58.136V95H409.112V25.88H425.88L429.08 33.048C434.2 27.288 441.88 23.96 450.84 23.96Z" fill="white"/>
+  </g>
+
+  <!-- Title -->
+  <text x="600" y="218" text-anchor="middle" fill="#ffffff" font-family="Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="46" font-weight="800" letter-spacing="-1.2">Merchant Demo</text>
+
+  <!-- Subtitle -->
+  <text x="600" y="258" text-anchor="middle" fill="rgba(255,255,255,0.74)" font-family="Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="17" font-weight="400">A production-shaped reference integration of the Altruon JS SDK</text>
+  <text x="600" y="284" text-anchor="middle" fill="rgba(255,255,255,0.74)" font-family="Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="17" font-weight="400">Branded checkout &#183; live estimates &#183; redirect &amp; QR flows &#183; transaction report</text>
+
+  <!-- Action pills (decorative, matches docs hero) -->
+  <rect x="333" y="318" width="148" height="42" rx="12" fill="#01ab4b"/>
+  <text x="392" y="344" text-anchor="middle" fill="#ffffff" font-family="Inter, system-ui, sans-serif" font-size="15" font-weight="600">Get started</text>
+  <path d="M448 339 L458 344 L448 349" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+
+  <rect x="493" y="318" width="136" height="42" rx="12" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.18)" stroke-width="1"/>
+  <text x="561" y="344" text-anchor="middle" fill="#ffffff" font-family="Inter, system-ui, sans-serif" font-size="15" font-weight="600">Quick start</text>
+
+  <rect x="641" y="318" width="226" height="42" rx="12" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.18)" stroke-width="1"/>
+  <text x="754" y="344" text-anchor="middle" fill="#ffffff" font-family="Inter, system-ui, sans-serif" font-size="15" font-weight="600">View on docs.altruon.io</text>
+</svg>

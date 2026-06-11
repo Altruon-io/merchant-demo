@@ -1,0 +1,134 @@
+/* TransactionDetails — receipt cards linking gateway + billing provider. */
+
+.transaction-details {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.td-section {
+  padding: 20px 22px;
+}
+
+.td-section header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.td-section-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--sf-primary);
+}
+
+.td-section-title h3 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--sf-text);
+}
+
+/* External deep link ("View in Stripe ↗") */
+
+.td-external {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--sf-primary);
+  text-decoration: none;
+  border: 1px solid color-mix(in srgb, var(--sf-primary) 30%, transparent);
+  background: color-mix(in srgb, var(--sf-primary) 6%, white);
+  border-radius: 999px;
+  padding: 6px 12px;
+  white-space: nowrap;
+  transition: background 0.15s;
+}
+
+.td-external:hover {
+  background: color-mix(in srgb, var(--sf-primary) 12%, white);
+}
+
+/* Key/value grid */
+
+.td-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px 18px;
+}
+
+@media (max-width: 560px) {
+  .td-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.td-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.td-item.wide {
+  grid-column: 1 / -1;
+}
+
+.td-label {
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--sf-text-muted);
+}
+
+.td-value {
+  font-size: 13.5px;
+  color: var(--sf-text);
+  word-break: break-all;
+}
+
+.td-value.capitalize {
+  text-transform: capitalize;
+}
+
+.td-amount {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.td-error {
+  color: var(--sf-danger);
+}
+
+/* Copyable ids */
+
+.td-copyable {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+
+.td-copyable button {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border: 1px solid var(--sf-border);
+  border-radius: 6px;
+  background: #fff;
+  color: var(--sf-text-muted);
+}
+
+.td-copyable button:hover {
+  color: var(--sf-text);
+  background: var(--sf-bg);
+}

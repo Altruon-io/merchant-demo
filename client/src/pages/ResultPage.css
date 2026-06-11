@@ -1,0 +1,110 @@
+/* ResultPage — post-payment status hero + transaction report. */
+
+.result-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--sf-bg);
+}
+
+.result-main {
+  flex: 1;
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 36px 24px 56px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* Loading state (just landed from a redirect) */
+
+.result-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 80px 0;
+}
+
+.result-loading p {
+  font-size: 14.5px;
+  color: var(--sf-text-muted);
+}
+
+/* Status hero */
+
+.result-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 40px 28px 34px;
+}
+
+.result-hero h1 {
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+}
+
+.result-hero p {
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--sf-text-muted);
+  max-width: 420px;
+}
+
+.result-amount {
+  margin-top: 18px;
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+/* Status icons */
+
+.result-icon {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+
+.result-icon.success {
+  background: color-mix(in srgb, var(--sf-success) 13%, white);
+  color: var(--sf-success);
+}
+
+.result-icon.failed {
+  background: color-mix(in srgb, var(--sf-danger) 11%, white);
+  color: var(--sf-danger);
+}
+
+.result-icon.pending {
+  background: color-mix(in srgb, var(--sf-warning) 13%, white);
+  color: var(--sf-warning);
+}
+
+/* Actions */
+
+.result-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 6px;
+}
+
+.result-cta {
+  margin-top: 20px;
+  text-decoration: none;
+}
+
+.result-actions .sf-button {
+  text-decoration: none;
+  min-width: 220px;
+}

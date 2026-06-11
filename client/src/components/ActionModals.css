@@ -1,0 +1,181 @@
+/* Shared styles for RedirectModal, QrOverlay, FailureModal, ProcessingOverlay. */
+
+.action-modal {
+  text-align: center;
+}
+
+.action-modal h3 {
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-bottom: 8px;
+}
+
+.action-text {
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--sf-text-muted);
+  margin-bottom: 8px;
+}
+
+.action-destination {
+  font-size: 13px;
+  color: var(--sf-text-muted);
+  margin-bottom: 4px;
+}
+
+.action-footnote {
+  margin-top: 16px;
+  font-size: 12px;
+  color: var(--sf-text-muted);
+}
+
+/* Circular icon at the top of each modal */
+
+.action-icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.action-icon.redirect {
+  background: color-mix(in srgb, var(--sf-primary) 12%, white);
+  color: var(--sf-primary);
+}
+
+.action-icon.failure {
+  background: color-mix(in srgb, var(--sf-danger) 10%, white);
+  color: var(--sf-danger);
+}
+
+.action-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+/* QR specifics */
+
+.qr-modal {
+  position: relative;
+}
+
+.qr-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: var(--sf-bg);
+  border: 1px solid var(--sf-border);
+  border-radius: 8px;
+  width: 32px;
+  height: 32px;
+  font-size: 13px;
+  color: var(--sf-text-muted);
+}
+
+.qr-close:hover {
+  color: var(--sf-text);
+}
+
+.qr-frame {
+  width: 240px;
+  height: 240px;
+  margin: 18px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--sf-border);
+  border-radius: var(--radius-lg);
+  background: #fff;
+  padding: 12px;
+}
+
+.qr-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  image-rendering: pixelated; /* keep QR modules crisp when scaled */
+}
+
+.qr-waiting {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--sf-text-muted);
+}
+
+.qr-pulse {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--sf-success);
+  animation: qr-pulse 1.4s ease-in-out infinite;
+}
+
+@keyframes qr-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--sf-success) 45%, transparent);
+  }
+  50% {
+    box-shadow: 0 0 0 7px transparent;
+  }
+}
+
+/* Processing overlay */
+
+.processing-overlay {
+  /* Inherits .overlay-blocking scrim */
+}
+
+.processing-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+  width: 100%;
+  max-width: 380px;
+  padding: 32px 28px;
+  background: #fff;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-pop);
+  animation: pop-in 0.22s cubic-bezier(0.21, 1.02, 0.73, 1);
+}
+
+.processing-spinner-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  margin-bottom: 4px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--sf-primary) 8%, white);
+}
+
+.processing-card h3 {
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.processing-card p {
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--sf-text-muted);
+  max-width: 28ch;
+}
+
+.processing-cancel {
+  margin-top: 8px;
+  min-width: 160px;
+}
