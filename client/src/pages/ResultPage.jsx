@@ -19,7 +19,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { useDemoConfig } from "../context/DemoConfigContext.jsx";
 import { fetchTransaction } from "../services/api.js";
-import { formatDecimalMoney } from "../utils/money.js";
+import { formatDisplayAmount } from "../utils/money.js";
 import { isValidTransactionId } from "../utils/transactionId.js";
 import TransactionDetails from "../components/TransactionDetails.jsx";
 import BrandMark from "../components/BrandMark.jsx";
@@ -114,9 +114,9 @@ export default function ResultPage() {
               <StatusIcon variant={variant} />
               <h1>{copy.title}</h1>
               <p>{copy.text}</p>
-              {details?.transaction?.amount && (
+              {(details?.transaction?.amountInMajorUnit ?? details?.transaction?.amount) && (
                 <div className="result-amount">
-                  {formatDecimalMoney(details.transaction.amount, details.transaction.currency)}
+                  {formatDisplayAmount(details.transaction)}
                 </div>
               )}
             </div>

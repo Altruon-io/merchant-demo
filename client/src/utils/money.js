@@ -28,8 +28,9 @@ export function currencyDivisor(currency) {
  * → "€12.30". Accepts strings or numbers (API responses vary). Returns "—"
  * for null/undefined so callers can render placeholders safely.
  *
- * Use for: invoice amounts and other fields that return minor units.
- * (Transaction.amount is currently major units — use formatDecimalMoney there.)
+ * Use for: invoice amounts and other fields that return minor units only
+ * (when `amountInMajorUnit` is not available).
+ * Prefer formatDisplayAmount() for transaction/invoice DTOs from the API.
  */
 export function formatMoney(minorAmount, currency) {
   if (minorAmount === null || minorAmount === undefined || minorAmount === "") return "—";
@@ -44,9 +45,9 @@ export function formatMoney(minorAmount, currency) {
  * Format a MAJOR-unit (decimal) amount, e.g. formatDecimalMoney(59.9, "BRL")
  * → "R$59.90".
  *
- * Use for: the estimate-subscription API, which returns decimal amounts
- * (futureInvoiceAmountDue, invoiceSubtotal, totalTaxAmount, line items) —
- * unlike the transaction details API, which uses minor units.
+ * Use for: Altruon `amountInMajorUnit` fields, estimate-subscription API
+ * (futureInvoiceAmountDue, invoiceSubtotal, line items), and other
+ * pre-converted display amounts.
  */
 export function formatDecimalMoney(amount, currency) {
   if (amount === null || amount === undefined || amount === "") return "—";
@@ -54,4 +55,23 @@ export function formatDecimalMoney(amount, currency) {
     style: "currency",
     currency: (currency || "USD").toUpperCase(),
   }).format(Number(amount));
+}
+
+/**
+ * Format an amount from an Altruon transaction/invoice DTO for display.
+ * Prefers the computed major-unit field; falls back to minor `amount` /
+ * `amountDue` when talking to an older API response.
+ */
+export function formatDisplayAmount(entity, currency) {
+  if (!entity) return "—";
+  const code = currency ?? entity.currency;
+  const major = entity.amountInMajorUnit ?? entity.amountDueInMajorUnit;
+  if (major != null && major !== "") {
+    return formatDecimalMoney(major, code);
+  }
+  const minor = entity.amount ?? entity.amountDue;
+  if (minor != null && minor !== "") {
+    return formatMoney(minor, code);
+  }
+  return "—";
 }

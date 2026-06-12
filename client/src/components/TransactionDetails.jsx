@@ -16,7 +16,7 @@
  */
 
 import React, { useState } from "react";
-import { formatDecimalMoney, formatMoney } from "../utils/money.js";
+import { formatDisplayAmount } from "../utils/money.js";
 import "./TransactionDetails.css";
 
 /** Human-friendly date like "June 10, 2026, 06:30 PM". */
@@ -126,7 +126,7 @@ export default function TransactionDetails({ details }) {
         >
           <Item label="Amount" wide>
             <span className="td-value td-amount">
-              {formatDecimalMoney(transaction.amount, transaction.currency)}
+              {formatDisplayAmount(transaction)}
             </span>
           </Item>
           <Item label="Transaction ID">
@@ -195,7 +195,7 @@ export default function TransactionDetails({ details }) {
             <CopyableId value={invoice.idAtBillingPlatform} />
           </Item>
           <Item label="Amount">
-            <span className="td-value">{formatMoney(invoice.amount, invoice.currency)}</span>
+            <span className="td-value">{formatDisplayAmount(invoice)}</span>
           </Item>
         </Section>
       )}
